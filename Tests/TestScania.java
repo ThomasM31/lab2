@@ -11,16 +11,16 @@ public class TestScania {
     @Test
     public void testRaiseTrailer(){
         TestScania.raiseTrailer(20);
-        System.out.println(TestScania.getTrailer());
+        System.out.println(TestScania.getTrailerAngle());
         TestScania.raiseTrailer(60);
-        assert (TestScania.getTrailer() == 20);
+        assert (TestScania.getTrailerAngle() == 20);
     }
 
     @Test
     public void testLowerTrailer() {
     TestScania.raiseTrailer(20);
     TestScania.lowerTrailer(10);
-    System.out.println(TestScania.getTrailer());
-    assert (TestScania.getTrailer() == 10);
+    System.out.println(TestScania.getTrailerAngle());
+    assert (TestScania.getTrailerAngle() == 10);
     }
 }

@@ -1,11 +1,11 @@
 import java.awt.*;
 
 abstract public class Car implements Movable {
-    private int nrDoors; // Number of doors on the car
-    private double enginePower; // Engine power of the car
+    private final int nrDoors; // Number of doors on the car
+    private final double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
-    public String modelName; // The car model name
+    public final String modelName; // The car model name
     private double direction;
     private double xPosition;
     private double yPosition;
@@ -43,7 +43,8 @@ abstract public class Car implements Movable {
 
     public double getDirection(){return direction;}// Returns Direction
 
-    public double[] getPosition(){return new double[]{xPosition,yPosition};}// Returns Position
+    public double[] getPosition(){
+        return new double[]{xPosition,yPosition};}// Returns Position
 
     protected abstract double speedFactor();
 
