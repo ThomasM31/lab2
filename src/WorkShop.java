@@ -4,7 +4,7 @@ import java.util.concurrent.CompletionException;
 
 public class WorkShop<T> {
     private final Point pos;
-    private List<T> carsInWorkshop;
+    private ArrayList<T> carsInWorkshop;
     private final int capacity;
 
     public Point getPos() {return pos;}

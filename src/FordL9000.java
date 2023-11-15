@@ -3,7 +3,7 @@ import java.util.Stack;
 
 public class FordL9000 extends Car {
 
-    private Ramp ramp;
+    private Ramp<Car> ramp;
 
     public FordL9000() {
         super(2, 125, Color.blue, "FordL9000");
@@ -35,8 +35,8 @@ public class FordL9000 extends Car {
         this.move();
         Stack<Car> content = ramp.getContent();
         // Move all cars when carrier moves
-        for (int i = 0; i < ramp.getContent().size(); i++) {
-            content.get(i).move();
+        for (Car car: content) {
+            car.setPosition(xPos,yPos);
         }
     }
     public void loadTrailer(Car item) {

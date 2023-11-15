@@ -1,7 +1,6 @@
 import java.awt.*;
 
 public class Scania extends Car{
-
     private double trailerAngle;
 
     public Scania() {
@@ -17,7 +16,7 @@ public class Scania extends Car{
         if(trailerAngle > 0) {
             super.gas(amount);
         } else {
-           // throw new TrailerNotDown("trailer is up by " + trailerAngle);
+           System.out.println("trailer is up by " + trailerAngle + " cannot start until lowered");
         }
     }
 

@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import java.util.Arrays;
 
 public class TestFordL9000 {
 
@@ -28,11 +29,15 @@ public class TestFordL9000 {
     }
     @Test
     public void testLoadTrailer() {
+        testFord.lowerRamp();
+        testFord.loadTrailer(testVolvo);
 
+        assert (testFord.getContentInRamp().firstElement() == testVolvo);
     }
 
     @Test
     public void testOffloadTrailer() {
+        testFord.lowerRamp();
         testFord.loadTrailer(testVolvo);
         testFord.loadTrailer(testSaab);
         testFord.offLoadTrailer();
@@ -40,10 +45,13 @@ public class TestFordL9000 {
 
     @Test
     public void testMoveFord9000() {
+        testFord.lowerRamp();
         testFord.loadTrailer(testVolvo);
+        testFord.raiseRamp();
         testFord.gas(1);
         testFord.moveCarrier();
         testFord.offLoadTrailer();
-        assert testFord.getPosition() == testVolvo.getPosition();
+
+        assert Arrays.equals(testFord.getPosition(), testVolvo.getPosition());
     }
 }
