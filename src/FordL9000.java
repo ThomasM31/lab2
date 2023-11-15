@@ -30,6 +30,7 @@ public class FordL9000 extends Car {
         }
     }
 
+    // TODO: lock position or direction of cars to fords
     public void moveCarrier() {
         this.move();
         Stack<Car> content = ramp.getContent();
