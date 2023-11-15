@@ -12,8 +12,16 @@ public class Scania extends Car{
         return getEnginePower() * 0.01;
     }
 
-    public double getTrailerAngle() {
-        return trailerAngle;}
+    @Override
+    public void gas(double amount) { // throws TrailerNotDown {
+        if(trailerAngle > 0) {
+            super.gas(amount);
+        } else {
+           // throw new TrailerNotDown("trailer is up by " + trailerAngle);
+        }
+    }
+
+    public double getTrailerAngle() {return trailerAngle;}
 
     public void raiseTrailer(double angle){
         if (getCurrentSpeed() == 0 && (trailerAngle + angle < 70) && (angle > 0)) {

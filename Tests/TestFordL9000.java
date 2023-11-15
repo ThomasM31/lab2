@@ -7,10 +7,6 @@ public class TestFordL9000 {
     public void Setup() {
         testFord = new FordL9000();
     }
-    @Test
-    public void testMoveCarrier(){
-        //testFord.move();
-    }
 
     @Test
     public void testRaiseRampFail() {
@@ -21,6 +17,29 @@ public class TestFordL9000 {
 
     @Test
     public void testLowerRampFail() {
+        testFord.gas(1);
+        testFord.lowerRamp();
+        assert testFord.getRamp();
 
+    }
+    @Test
+    public void testLoadTrailer() {
+
+    }
+
+    @Test
+    public void testOffloadTrailer() {
+        testFord.loadTrailer(testVolvo);
+        testFord.loadTrailer(testSaab);
+        testFord.offLoadTrailer();
+    }
+
+    @Test
+    public void testMoveFord9000() {
+        testFord.loadTrailer(testVolvo);
+        testFord.gas(1);
+        testFord.moveCarrier();
+        testFord.offLoadTrailer();
+        assert testFord.getPosition() == testVolvo.getPosition();
     }
 }

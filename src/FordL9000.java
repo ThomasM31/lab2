@@ -9,9 +9,8 @@ public class FordL9000 extends Car {
         ramp = new Ramp();
     }
 
-    // TODO: rimligt att ha en sådan metod här??
-    public Ramp getRamp() {
-        return ramp;
+    public boolean getRamp() {
+        return ramp.getRamp();
     }
 
     public double speedFactor() {
@@ -32,7 +31,8 @@ public class FordL9000 extends Car {
 
     public void moveCarrier() {
         this.move();
-        // TODO: Ska flytta alla bilar på rampen till samma position som FordL9000
+        Stack<Car> content = ramp.getContent();
+        // Move all cars when carrier moves
         for (int i = 0; i < ramp.getContent().size(); i++) {
             ramp.getContent().get(i).move();
         }
