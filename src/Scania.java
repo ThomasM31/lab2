@@ -4,7 +4,6 @@ public class Scania extends Car{
     private double trailerAngle;
 
     public Scania() {
-
         super(2, 90, Color.yellow, "Scania");
     }
     public double speedFactor() {

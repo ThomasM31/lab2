@@ -4,7 +4,6 @@ public class Ramp {
     private boolean isRampUp = true;
     private Stack<Car> content = new Stack<>();
 
-    // TODO: Unnessecary??
     public boolean getRamp() {
         return isRampUp;
     }

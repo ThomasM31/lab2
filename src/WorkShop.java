@@ -1,6 +1,5 @@
 import java.awt.*;
-import java.util.List;
-import java.util.concurrent.CompletionException;
+import java.util.ArrayList;
 
 public class WorkShop<T> {
     private final Point pos;
@@ -19,14 +18,17 @@ public class WorkShop<T> {
     }
 
     public void addToWorkshop(T item) {
-        if(carsInWorkshop.size() >= capacity) return;
+        if (carsInWorkshop.size() >= capacity || carsInWorkshop.contains(item)) return;
         carsInWorkshop.add(item);
     }
     public T removeFromWorkshop(T item) {
-        int i = carsInWorkshop.indexOf(item);
-        T removedItem = carsInWorkshop.get(i);
-        carsInWorkshop.remove(item);
-        return removedItem;
+        if (carsInWorkshop.contains(item)) {
+            int i = carsInWorkshop.indexOf(item);
+            T removedItem = carsInWorkshop.get(i);
+            carsInWorkshop.remove(item);
+            return removedItem;
+        }
+        return null;
     }
 }
 

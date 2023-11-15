@@ -12,6 +12,11 @@ public class TestFordL9000 {
     public void Setup() {
         testVolvo = new Volvo240();
         testFord = new FordL9000();
+        testSaab = new Saab95();
+
+        testFord.setPosition(5,5);
+        testSaab.setPosition(3,5);
+        testVolvo.setPosition(5,6);
     }
 
     @Test
@@ -41,6 +46,7 @@ public class TestFordL9000 {
         testFord.loadTrailer(testVolvo);
         testFord.loadTrailer(testSaab);
         testFord.offLoadTrailer();
+        assert (testFord.getContentInRamp().firstElement() == testVolvo);
     }
 
     @Test
@@ -53,5 +59,17 @@ public class TestFordL9000 {
         testFord.offLoadTrailer();
 
         assert Arrays.equals(testFord.getPosition(), testVolvo.getPosition());
+    }
+
+    @Test
+    public void testMoveFord9000WithoutOffloading() {
+        testFord.lowerRamp();
+        testFord.loadTrailer(testVolvo);
+        testFord.raiseRamp();
+        testFord.gas(1);
+        testFord.moveCarrier();
+
+        assert Arrays.equals(testFord.getPosition(), testVolvo.getPosition());
+
     }
 }

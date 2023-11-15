@@ -5,14 +5,16 @@ import java.util.ArrayList;
 
 public class TestWorkShop {
     private Point pos;
-    private WorkShop testWorkShop;
+    private WorkShop<Car> testWorkShop;
     private Saab95 testSaab;
+    private Volvo240 testVolvo;
 
     @Before
     public void setup() {
         pos = new Point(1,1);
         testWorkShop = new WorkShop<Car>(pos,5);
         testSaab = new Saab95();
+        testVolvo = new Volvo240();
     }
     @Test
     public void testGetPos() {
@@ -26,10 +28,11 @@ public class TestWorkShop {
     }
     @Test
     public void testGetCarsInWorkshop() {
-        // TODO: Hjääääälp
-        //List<Saab95> cars = new List();
+        ArrayList<Saab95> cars = new ArrayList<Saab95>(5);
+        cars.add(testSaab);
 
-        //assert cars == testWorkShop.getCarsInWorkshop();
+        testWorkShop.addToWorkshop(testSaab);
+        assert cars.equals(testWorkShop.getCarsInWorkshop());
     }
     @Test
     public void testAddToWorkshop() {

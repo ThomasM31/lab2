@@ -18,26 +18,16 @@ abstract public class Car implements Movable {
         stopEngine();
     }
 
-    public int getNrDoors(){
-        return nrDoors;
-    } //Get number of doors
-    public double getEnginePower(){
-        return enginePower;
-    } //Get Engine Power
+    public int getNrDoors(){return nrDoors;} //Get number of doors
+    public double getEnginePower(){return enginePower;} //Get Engine Power
 
     public double getCurrentSpeed(){return currentSpeed;}// Get Current Speed
 
-    public Color getColor(){
-        return color;
-    }// Get Color
+    public Color getColor(){return color;}// Get Color
 
-    public void setColor(Color clr){
-        color = clr;
-    } // Set Color
+    public void setColor(Color clr){color = clr;} // Set Color
 
-    public void startEngine(){
-        currentSpeed = 0.1;
-    } // Start Engine
+    public void startEngine(){currentSpeed = 0.1;} // Start Engine
 
     public void stopEngine(){currentSpeed = 0;}// Stops Engine
 
@@ -45,6 +35,11 @@ abstract public class Car implements Movable {
 
     public double[] getPosition(){
         return new double[]{xPosition,yPosition};}// Returns Position
+
+    public void setPosition(double x, double y){
+        xPosition = x;
+        yPosition = y;
+    }
 
     protected abstract double speedFactor();
 

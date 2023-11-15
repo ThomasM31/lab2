@@ -14,6 +14,8 @@ public class FordL9000 extends Car {
         return ramp.getRamp();
     }
 
+    public Stack<Car> getContentInRamp(){return ramp.getContent();}
+
     public double speedFactor() {
         return getEnginePower() * 0.01;
     }
@@ -30,10 +32,12 @@ public class FordL9000 extends Car {
         }
     }
 
-    // TODO: lock position or direction of cars to fords
     public void moveCarrier() {
         this.move();
         Stack<Car> content = ramp.getContent();
+        double xPos = this.getPosition()[0];
+        double yPos = this.getPosition()[1];
+
         // Move all cars when carrier moves
         for (Car car: content) {
             car.setPosition(xPos,yPos);
@@ -55,10 +59,7 @@ public class FordL9000 extends Car {
     }
 
     public void offLoadTrailer() {
-        if (!ramp.getRamp()) {
-            Car offLoaded = ramp.offloadItem();
-        }
-
+        ramp.offloadItem();
     }
 
 }
