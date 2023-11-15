@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Stack;
 
 public class FordL9000 extends Car {
 
@@ -34,11 +35,10 @@ public class FordL9000 extends Car {
         Stack<Car> content = ramp.getContent();
         // Move all cars when carrier moves
         for (int i = 0; i < ramp.getContent().size(); i++) {
-            ramp.getContent().get(i).move();
+            content.get(i).move();
         }
     }
     public void loadTrailer(Car item) {
-        // TODO: Kollar att det inte är en till FordL9000 som ska laddas (Det får den inte göra)
         if (!(item instanceof FordL9000) && (!ramp.getRamp())) {
 
             double itemX = item.getPosition()[0];
@@ -47,7 +47,6 @@ public class FordL9000 extends Car {
             double carrierY = this.getPosition()[1];
             double distance = Math.sqrt(Math.pow((carrierX-itemX),2) + Math.pow((carrierY-itemY),2));
 
-            // TODO: rimligt värde på distansen??
             if (distance < 5) {
                 ramp.loadTrailer(item);
             }
@@ -57,8 +56,6 @@ public class FordL9000 extends Car {
     public void offLoadTrailer() {
         if (!ramp.getRamp()) {
             Car offLoaded = ramp.offloadItem();
-            // TODO: Var hamnar den nu?? rimligt? Borde den flyttas mindre?
-            offLoaded.move();
         }
 
     }

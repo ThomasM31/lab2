@@ -1,18 +1,22 @@
 import org.junit.Before;
 import org.junit.Test;
+
 public class TestFordL9000 {
 
     private FordL9000 testFord;
+    private Volvo240 testVolvo;
+    private Saab95 testSaab;
+
     @Before
     public void Setup() {
+        testVolvo = new Volvo240();
         testFord = new FordL9000();
     }
 
     @Test
     public void testRaiseRampFail() {
-        testFord.startEngine();
         testFord.raiseRamp();
-        //assert !testFord.getRamp().getRamp();
+        assert testFord.getRamp();
     }
 
     @Test
