@@ -38,5 +38,29 @@ public class TestWorkShop {
     public void testAddToWorkshop() {
         testWorkShop.addToWorkshop(testSaab);
 
+        assert testWorkShop.getCarsInWorkshop().contains(testSaab);
+    }
+    @Test
+    public void testAddToWorkshopOverCapacity() {
+        for (int i = 0; i < testWorkShop.getCapacity() + 1; i++) {
+            testWorkShop.addToWorkshop(new Saab95());
+        }
+        assert testWorkShop.getCapacity() == testWorkShop.getCarsInWorkshop().size();
+    }
+    @Test
+    public void testRemoveFromWorkshop() {
+        ArrayList<Car> cars = new ArrayList<Car>(5);
+        cars.add(testVolvo);
+
+        testWorkShop.addToWorkshop(testSaab);
+        testWorkShop.addToWorkshop(testVolvo);
+        testWorkShop.removeFromWorkshop(testSaab);
+
+        assert cars.equals(testWorkShop.getCarsInWorkshop()) ;
+    }
+
+    @Test
+    public void testRemoveFromWorkshopNotThere() {
+        assert testWorkShop.removeFromWorkshop(testSaab) == null;
     }
 }

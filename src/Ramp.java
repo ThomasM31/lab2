@@ -1,14 +1,14 @@
 import java.util.Stack;
 
-public class Ramp {
+public class Ramp<T> {
     private boolean isRampUp = true;
-    private Stack<Car> content = new Stack<>();
+    private Stack<T> content = new Stack<>();
 
     public boolean getRamp() {
         return isRampUp;
     }
 
-    public Stack<Car> getContent() {
+    public Stack<T> getContent() {
         return content;
     }
 
@@ -18,11 +18,13 @@ public class Ramp {
     public void lowerRamp () {
         isRampUp = false;
     }
-    public void loadTrailer(Car item) {
+    public void loadTrailer(T item) {
+        if(isRampUp) return;
         content.push(item);
     }
 
-    public Car offloadItem() {
-        return content.pop();
+    public void offloadItem() {
+        if(isRampUp) return;
+        content.pop();
     }
 }

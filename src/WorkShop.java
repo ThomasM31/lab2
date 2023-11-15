@@ -6,16 +6,17 @@ public class WorkShop<T> {
     private ArrayList<T> carsInWorkshop;
     private final int capacity;
 
+    public WorkShop(Point pos, int capacity) {
+        this.pos = pos;
+        this.capacity = capacity;
+        this.carsInWorkshop = new ArrayList<>();
+    }
+
     public Point getPos() {return pos;}
 
     public int getCapacity() {return capacity;}
 
-    public List<T> getCarsInWorkshop() {return carsInWorkshop;}
-
-    public WorkShop(Point pos, int capacity) {
-        this.pos = pos;
-        this.capacity = capacity;
-    }
+    public ArrayList<T> getCarsInWorkshop() {return carsInWorkshop;}
 
     public void addToWorkshop(T item) {
         if (carsInWorkshop.size() >= capacity || carsInWorkshop.contains(item)) return;
@@ -33,4 +34,4 @@ public class WorkShop<T> {
 }
 
 
-//Example: WorkShop shop = new WorkShop(Model.Saab95);
+//Example: WorkShop<Car> shop = new WorkShop<Car>(new Point(1,1), 10);

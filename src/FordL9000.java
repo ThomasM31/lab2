@@ -7,7 +7,7 @@ public class FordL9000 extends Car {
 
     public FordL9000() {
         super(2, 125, Color.blue, "FordL9000");
-        ramp = new Ramp();
+        ramp = new Ramp<Car>();
     }
 
     public boolean getRamp() {
@@ -44,7 +44,7 @@ public class FordL9000 extends Car {
         }
     }
     public void loadTrailer(Car item) {
-        if (!(item instanceof FordL9000) && (!ramp.getRamp())) {
+        if (!(item instanceof FordL9000)) {
 
             double itemX = item.getPosition()[0];
             double itemY = item.getPosition()[1];
