@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class TestWorkShop {
     private Point pos;
+    private int maxCapacity;
     private WorkShop<Car> testWorkShop;
     private Saab95 testSaab;
     private Volvo240 testVolvo;
@@ -12,7 +13,8 @@ public class TestWorkShop {
     @Before
     public void setup() {
         pos = new Point(1,1);
-        testWorkShop = new WorkShop<Car>(pos,5);
+        maxCapacity = 5;
+        testWorkShop = new WorkShop<Car>(pos,maxCapacity);
         testSaab = new Saab95();
         testVolvo = new Volvo240();
     }
@@ -23,12 +25,12 @@ public class TestWorkShop {
     }
     @Test
     public void testGetCapacity() {
-        int capacity = 5;
-        assert testWorkShop.getCapacity() == capacity;
+        int testCapacity = maxCapacity;
+        assert testWorkShop.getCapacity() == testCapacity;
     }
     @Test
     public void testGetCarsInWorkshop() {
-        ArrayList<Saab95> cars = new ArrayList<Saab95>(5);
+        ArrayList<Saab95> cars = new ArrayList<Saab95>(maxCapacity);
         cars.add(testSaab);
 
         testWorkShop.addToWorkshop(testSaab);
@@ -49,7 +51,7 @@ public class TestWorkShop {
     }
     @Test
     public void testRemoveFromWorkshop() {
-        ArrayList<Car> cars = new ArrayList<Car>(5);
+        ArrayList<Car> cars = new ArrayList<Car>(maxCapacity);
         cars.add(testVolvo);
 
         testWorkShop.addToWorkshop(testSaab);
